@@ -1,0 +1,19 @@
+spring:
+    application:
+        name: eureka-client
+
+server:
+    port: ${PORT:8989}
+
+eureka:
+    instance:
+        hostname: ${vcap.application.uris[0]:localhost}
+        nonSecurePort: 80
+        metadataMap:
+            instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+        leaseRenewalIntervalInSeconds: 1
+        lease-expiration-duration-in-seconds: 5
+        lease-renewal-interval-in-seconds: 10
+    client:
+        registryFetchIntervalSeconds: 5
+
