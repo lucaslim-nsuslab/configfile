@@ -1,6 +1,5 @@
 spring:
-  profiles:
-    active: dev
+  profiles: dev
 
 spring:
     application:
